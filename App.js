@@ -1,4 +1,4 @@
-import { StyleSheet, Text, SafeAreaView, Platform } from 'react-native';
+import { StyleSheet, SafeAreaView, Platform, ScrollView } from 'react-native';
 import PokemonCard from './components/PokemonCard';
 
 export default function App() {
@@ -12,9 +12,42 @@ export default function App() {
     weaknesses: ["Acqua", "Roccia"],
   };
 
+  const squirtleData = {
+    name: "Squirtle",
+    image: require("./assets/squirtle.png"),
+    type: "Acqua",
+    hp: 44,
+    moves: ["Grazia", "Pistola Acqua", "Testata", "Raffica"],
+    weaknesses: ["Erba", "Elettro"],
+  };
+
+  const pikachuData = {
+    name: "Pikachu",
+    image: require("./assets/pikachu.png"),
+    type: "Elettro",
+    hp: 35,
+    moves: ["Tuonopugno", "Fulmine", "Tuononda", "Scarica"],
+    weaknesses: ["Terra"],
+  };
+
+  const bulbasaurData = {
+    name: "Bulbasaur",
+    image: require("./assets/bulbasaur.png"),
+    type: "Erba",
+    hp: 45,
+    moves: ["Parassiseme", "Foglielama", "Velenpuntura", "Fogliamaglia"],
+    weaknesses: ["Fuoco", "Volante"],
+  };
+
+
   return (
     <SafeAreaView style={styles.container}>
-      <PokemonCard {...charmanderData} />
+      <ScrollView>
+        <PokemonCard {...charmanderData} />
+        <PokemonCard {...squirtleData} />
+        <PokemonCard {...bulbasaurData} />
+        <PokemonCard {...pikachuData} />
+      </ScrollView>
     </SafeAreaView>
   );
 }
